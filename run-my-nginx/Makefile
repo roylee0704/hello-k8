@@ -10,3 +10,6 @@ validate:
 	kubectl -n roy-nginx get pods -o yaml | grep 'podIP:'
 
 start: init apply validate
+
+clean:
+	kubectl -n roy-nginx delete -f run-my-nginx.yaml 
