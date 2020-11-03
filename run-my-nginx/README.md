@@ -7,10 +7,7 @@ An experiment to see how pods can communicate(east-west) with each other within 
 
 A deployment with 2 replicas of nginx. Then, expose pods to `Service: ClusterIP` to demonstrate east-west communications. Each nginx container has port:80.
 
-### Observations
-
-1. Due to volatility of IP address in Pods (they died), port is being used as the sole bridge for communication.
-
+Due to volatility of IP address in Pods (they died), port is being used as the sole bridge for communication.
 
 
 ### Getting Started
@@ -23,13 +20,9 @@ $ make apply
 $ make validate
 ```
 
-###  ClusterIP into your targeted Pods
+###  Service: ClusterIP
 
 This create a Service which targets TCP port 80 on any Pod with the run: roy-nginx label.
-
-*Note: ClusterIP is completely virtual, it never hits the wire.*
-
-
 ```sh
 $ kubectl -n roy-nginx expose deployment/roy-nginx
 ```
@@ -42,7 +35,7 @@ $ kubectl -n roy-nginx get svc roy-nginx -ojsonpath='{.spec.clusterIP}'
 ```
 
 
-### East-West Communication Demonstration
+#### East-West Communication
 
 `Service:ClusterIP` IP is completely virtual. It never hits the wire.
 
