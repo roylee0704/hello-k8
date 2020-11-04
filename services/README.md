@@ -68,7 +68,17 @@ Currently Service doesn't have external IP, so lets now patch the Service to use
 $ kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
+### North-South Communication
 
+You can reach the Pod from external world via `Service:LoadBalancer`'s public IP or DNS.
+
+```sh
+# extract loadbalancer public-ip
+$ export loadbalancer=$(kubectl -n my-nginx get svc my-nginx -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
+
+# curl it.
+$ curl -k -s http://${loadbalancer}:80 | grep title
+```
 
 ## References
 - https://www.eksworkshop.com/beginner/130_exposing-service/connecting/
