@@ -8,14 +8,11 @@ This experiment will be conducted over 3 types of services offered in k8s:
 - LoadBalancer. An abstraction of `NodePort` that hides node-port ranges `:30000` to`:32767` with `port:80`. Lives outside of node/ec2 cluster.
 - NodePort. The simplest/cheapest way to establish north-south communication.
 
-## Experiment
-
-A deployment with 2 replicas of nginx. Then, expose pods to `Service: ClusterIP` to demonstrate east-west communications. Each nginx container has port:80.
-
-Due to volatility of IP address in Pods (they died), port is being used as the sole bridge for communication.
-
+tips: Due to volatility of IP address in Pods (they died), port is being used as the sole bridge for communication.
 
 ## Getting Started
+
+A deployment with 2 replicas of nginx.
 
 After gotten your kubernetes cluster hook up, run following commands,
 
@@ -25,7 +22,10 @@ $ make apply
 $ make validate
 ```
 
-## Service: ClusterIP
+## 1. Service: ClusterIP
+
+Expose pods to `Service: ClusterIP` to demonstrate east-west communications. Each nginx container has port:80.
+
 
 This create a Service which targets TCP port 80 on any Pod with the run: roy-nginx label.
 ```sh
@@ -58,7 +58,7 @@ $# wget -q -O - ${MyClusterIP} | grep '<title>'
 ```
 
 
-## Services: Load Balancer
+## 2. Services: Load Balancer
 
 Currently Service doesn't have external IP, so lets now patch the Service to use a cloud load balancer, by updating the type of roy-nginx Service from `ClusterIP` to `LoadBalancer`.
 
