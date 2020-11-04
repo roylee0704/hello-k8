@@ -61,7 +61,7 @@ $# wget -q -O - ${MyClusterIP} | grep '<title>'
 
 ## 2. Services: Load Balancer
 
-Currently Service doesn't have external IP, so lets now patch the Service to use a cloud load balancer, by updating the type of roy-nginx Service from `ClusterIP` to `LoadBalancer`.
+Currently Service doesn't have external/public IP, so lets now patch the Service to use a cloud load balancer, by updating the type of roy-nginx Service from `ClusterIP` to `LoadBalancer`.
 
 
 ```sh
