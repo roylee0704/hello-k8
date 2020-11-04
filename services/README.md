@@ -72,7 +72,7 @@ $ kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "LoadBalancer"}
 
 There are two ways of reaching the Pod from external world:
 - via `Service:LoadBalancer`'s public IP or DNS.
-- via `Service:NodePort`.
+- via `Service:NodePort`. (for instructions, check section below `Services: Node Port`)
 
 
 Following commands showcasing accessing Pod via `Service:LoadBalancer`.
@@ -83,6 +83,28 @@ $ export loadbalancer=$(kubectl -n my-nginx get svc my-nginx -o jsonpath='{.stat
 # curl it.
 $ curl -k -s http://${loadbalancer}:80 | grep title
 ```
+
+
+## 3. Services: Node Port
+
+Let's patch it to `NodePort`.
+
+```sh
+$ kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "NodePort"}}'
+```
+
+### North-South Communication
+
+There only way to access the Pod is via Node's public IP address. However, for security reason, that is not doable unless you changed the node's firewall (security-group) to allow ingress access of port-range `:30000` to`:32767`.
+
+If you're lazy and want quick result, you can use a technique called [port-forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
+
+```sh
+# kubectl port-forward your-unique-pod-name your-local-machine-port:node-high-port
+$ kubectl port-forward pod/roy-nginx 4444:35200
+```
+
+However, if you want a long-term solution, go ahead and add a new TCP port-range of `:30000` to`:32767` on your nodes/ec2s in the cluster. Then you may access the pod with `https://node-public-ip:node-high-port`.
 
 ## References
 - https://www.eksworkshop.com/beginner/130_exposing-service/connecting/
