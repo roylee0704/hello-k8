@@ -27,5 +27,9 @@ patch_svc_loadbalancer:
 patch_svc_clusterip:
 	kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "ClusterIP"}}'
 
+# you can switch from loadbalancer to nodeport, vice versa.
+patch_svc_nodeport:
+	kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "NodePort"}}'
+
 status:
 	kubectl -n roy-nginx get po,svc,deploy

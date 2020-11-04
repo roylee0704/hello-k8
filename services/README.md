@@ -82,3 +82,4 @@ $ curl -k -s http://${loadbalancer}:80 | grep title
 
 ## References
 - https://www.eksworkshop.com/beginner/130_exposing-service/connecting/
+- https://medium.com/faun/learning-kubernetes-by-doing-part-3-services-ed5bf7e2bc8e
