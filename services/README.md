@@ -70,8 +70,12 @@ $ kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "LoadBalancer"}
 
 ### North-South Communication
 
-You can reach the Pod from external world via `Service:LoadBalancer`'s public IP or DNS.
+There are two ways of reaching the Pod from external world:
+- via `Service:LoadBalancer`'s public IP or DNS.
+- via `Service:NodePort`.
 
+
+Following commands showcasing accessing Pod via `Service:LoadBalancer`.
 ```sh
 # extract loadbalancer public-ip
 $ export loadbalancer=$(kubectl -n my-nginx get svc my-nginx -o jsonpath='{.status.loadBalancer.ingress[*].hostname}')
