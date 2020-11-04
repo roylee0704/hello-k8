@@ -13,6 +13,10 @@ start: init apply validate
 
 destroy:
 	kubectl -n roy-nginx delete -f run-my-nginx.yaml
+	kubectl -n roy-nginx delete service/roy-nginx
+
+	# from service: clusterIP experiment
+	kubectl -n roy-nginx delete pod/load-generator
 
 
 patch_svc_loadbalancer:
@@ -21,3 +25,6 @@ patch_svc_loadbalancer:
 # note: you can't patch from loadbalancer to clusterip. However the reverse is possible.
 patch_svc_clusterip:
 	kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "ClusterIP"}}'
+
+status:
+	kubectl -n roy-nginx get po,svc,deploy
