@@ -4,9 +4,9 @@ An experiment to see how pods can perform communication with other pods (east-we
 
 This experiment will be conducted over 3 types of services offered in k8s:
 
-- ClusterIP. Default service. It only provides east-west communication among pods across nodes/ec2 in the cluster.
-- LoadBalancer. An abstraction of `NodePort` that hides node-port ranges `:30000` to`:32767` with `port:80`. Lives outside of node/ec2 cluster.
-- NodePort. The simplest/cheapest way to establish north-south communication.
+- **Service: ClusterIP**. Default service. It only provides east-west communication among pods across nodes/ec2 in the cluster.
+- **Service: LoadBalancer**. An abstraction of `NodePort` that hides node-port ranges `:30000` to`:32767` with `port:80`. Lives outside of node/ec2 cluster.
+- **Service: NodePort**. The simplest/cheapest way to establish north-south communication.
 
 tips: Due to volatility of IP address in Pods (they died), port is being used as the sole bridge for communication.
 
