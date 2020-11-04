@@ -17,6 +17,7 @@ destroy:
 
 	# from service: clusterIP experiment
 	kubectl -n roy-nginx delete pod/load-generator
+	kubectl delete ns roy-nginx
 
 
 patch_svc_loadbalancer:
