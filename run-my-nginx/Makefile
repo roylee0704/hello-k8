@@ -11,5 +11,13 @@ validate:
 
 start: init apply validate
 
-clean:
-	kubectl -n roy-nginx delete -f run-my-nginx.yaml 
+destroy:
+	kubectl -n roy-nginx delete -f run-my-nginx.yaml
+
+
+patch_svc_loadbalancer:
+	kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "LoadBalancer"}}'
+
+# note: you can't patch from loadbalancer to clusterip. However the reverse is possible.
+patch_svc_clusterip:
+	kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "ClusterIP"}}'
