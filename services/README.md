@@ -101,7 +101,11 @@ If you're lazy and want quick result, you can use a technique called [port-forwa
 
 ```sh
 # kubectl port-forward your-unique-pod-name your-local-machine-port:node-high-port
-$ kubectl port-forward pod/roy-nginx 4444:35200
+$ kubectl port-forward pod/roy-nginx 4444:35200 &
+
+
+# to query background jobs
+$ jobs 
 ```
 
 However, if you want a long-term solution, go ahead and add a new TCP port-range of `:30000` to`:32767` on your nodes/ec2s in the cluster. Then you may access the pod with `https://node-public-ip:node-high-port`.
@@ -109,3 +113,4 @@ However, if you want a long-term solution, go ahead and add a new TCP port-range
 ## References
 - https://www.eksworkshop.com/beginner/130_exposing-service/connecting/
 - https://medium.com/faun/learning-kubernetes-by-doing-part-3-services-ed5bf7e2bc8e
+- https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/

@@ -33,3 +33,6 @@ patch_svc_nodeport:
 
 status:
 	kubectl -n roy-nginx get po,svc,deploy
+
+pod:
+	kubectl -n roy-nginx get po -l app=roy-nginx
