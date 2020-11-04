@@ -66,3 +66,8 @@ Currently Service doesn't have external IP, so lets now patch the Service to use
 ```sh
 $ kubectl -n roy-nginx patch svc roy-nginx -p '{"spec": {"type": "LoadBalancer"}}'
 ```
+
+
+
+## References
+- https://www.eksworkshop.com/beginner/130_exposing-service/connecting/
