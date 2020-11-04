@@ -4,7 +4,7 @@ a collections of k8 exp
 
 ## Getting Started
 
-Make sure you are connected to any k8s cluster choices of yours. In this example, I'm connecting to k8s in eks from aws provider.
+Make sure you are connected to any k8s cluster choices of yours. In this example, I'm connecting to k8s from aws-provider, eks.
  
 ```sh
 # authenticate myself to aws provider
