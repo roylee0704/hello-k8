@@ -4,7 +4,7 @@ An experiment to see how pods can perform communication with other pods (east-we
 
 This experiment will be conducted over 3 types of services offered in k8s:
 
-- **Service: ClusterIP**. Default service if you `$ kubectl expose ...`. It only provides east-west communication among pods across nodes/ec2 in the cluster.
+- **Service: ClusterIP**. Default service if you do not specify `--type=NodePort` flag on commands `kubectl expose ...`. It only provides east-west communication among pods across nodes/ec2 in the cluster.
 - **Service: LoadBalancer**. An abstraction of `NodePort` that hides node-port ranges `:30000` to`:32767` with `port:80`. Lives outside of node/ec2 cluster.
 - **Service: NodePort**. The simplest/cheapest way to establish north-south communication.
 
