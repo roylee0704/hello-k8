@@ -24,10 +24,11 @@ $ make validate
 
 ## 1. Service: ClusterIP
 
-Expose pods to `Service: ClusterIP` to demonstrate east-west communications. Each nginx container has port:80.
+Expose pods to `Service: ClusterIP` to demonstrate east-west communications. Each nginx container has `port:80`.
 
 
-This create a Service which targets TCP port 80 on any Pod with the run: roy-nginx label.
+Following commands creates a `Service: ClusterIP` that targets any Pods within ec2/node cluster with `label:roy-nginx` and `port:80` (information obtained from `deployment/roy-nginx`).
+
 ```sh
 $ kubectl -n roy-nginx expose deployment/roy-nginx
 ```
