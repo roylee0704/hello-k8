@@ -54,3 +54,4 @@ spec:
 
 
 # References
+- https://www.eksworkshop.com/beginner/130_exposing-service/ingress/
