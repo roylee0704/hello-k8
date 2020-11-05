@@ -68,7 +68,7 @@ In order for the Ingress resource to work, the cluster must have an ingress cont
 
 Unlike other types of controllers which run as part of the `kube-controller-manager` binary, Ingress controllers are **not started automatically with a cluster**.
 
-### Installation [docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide)
+### Installation
 
 There are few ways to install in your k8s cluster:
 
