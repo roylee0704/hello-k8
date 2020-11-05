@@ -70,13 +70,15 @@ Unlike other types of controllers which run as part of the `kube-controller-mana
 
 ### Installation [docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide)
 
-As per docs, you may install it [via helm: eks-chart](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller) or manually. We will go with the `helm` way.
+There are few ways to install in your k8s cluster:
 
-
-
+1. Manually with yaml.
+2. helm: eks-chart. ((docs)[https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller])
+3. Terraform. ((docs)[https://registry.terraform.io/modules/iplabs/alb-ingress-controller/kubernetes/latest])
 
 
 
 # References
 - https://www.eksworkshop.com/beginner/130_exposing-service/ingress/
 - https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide
+- https://registry.terraform.io/modules/iplabs/alb-ingress-controller/kubernetes/latest
