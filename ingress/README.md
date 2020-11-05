@@ -1,9 +1,7 @@
 
 # ingress
 
-
-
-## Ingress Resources
+## The Ingress Resources
 
 As with all other Kubernetes resources, an Ingress needs `apiVersion`, `kind`, and `metadata` fields. The name of an Ingress object must be a valid DNS subdomain name. For general information about working with config files, see deploying applications, configuring containers, managing resources. Ingress frequently uses annotations to configure some options depending on the Ingress controller, an example of which is the rewrite-target annotation. Different Ingress controller support different annotations. Review the documentation for your choice of Ingress controller to learn which annotations are supported.
 
@@ -59,5 +57,26 @@ spec:
 
 
 
+### Definitions
+
+- **backend**. Refers to your Service Resource (i.e: clusterIP, nodePort) name + port.
+
+
+## The Ingress Controllers
+
+In order for the Ingress resource to work, the cluster must have an ingress controller running.
+
+Unlike other types of controllers which run as part of the `kube-controller-manager` binary, Ingress controllers are **not started automatically with a cluster**.
+
+### Installation [docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide)
+
+As per docs, you may install it [via helm: eks-chart](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller) or manually. We will go with the `helm` way.
+
+
+
+
+
+
 # References
 - https://www.eksworkshop.com/beginner/130_exposing-service/ingress/
+- https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide
