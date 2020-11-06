@@ -74,8 +74,8 @@ There are few ways to install in your k8s cluster:
 
 1. Manually with yaml. ([docs](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/ed6b8669c0b08148b0309c229d2617425d514fe1/docs/guide/controller/installation.md#aws-load-balancer-controller-installation-guide))
 
-2. helm: eks-chart. ([docs](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller))
-3. Terraform. ([docs](https://registry.terraform.io/modules/iplabs/alb-ingress-controller/kubernetes/latest))
+2. Semi-auto with helm: eks-chart. ([docs](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller))
+3. Full-automation with Terraform. ([docs](https://registry.terraform.io/modules/iplabs/alb-ingress-controller/kubernetes/latest))
 
 
 
